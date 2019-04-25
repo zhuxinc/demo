@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //创建一个Map对象，使用Map()构造函数
+        let m1=new Map();
+        console.log(m1);
+
+        //向Map对象中添加成员（添加一项是两个值  key - value ） set方法
+        m1.set("name","小明").set("address","henan").set("age","20");
+        console.log(m1);
+
+
+        //删除Map中的某个成员  -根据key删除某个键值对
+        m1.delete("name");
+        console.log(m1)
+
+        //清空全部成员
+        // m1.clear();
+        // console.log(m1)
+
+
+
+        //只读属性size 记录成员个数
+        console.log(m1.size)
+
+
+        //艰涩是否包含某个key
+        let b=m1.has("name")
+        console.log(b);
+
+        //根据key来获取value
+        let v=m1.get("address");
+        console.log(v);
+
+        m1.set("age","22");//重复赋值即修改
+    </script>
+</body>
+</html>

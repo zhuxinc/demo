@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建一个函数，接受一个map作为参数，返回此map对应的object
+        function mapTo(map){
+            // let obj={}
+            let obj=Object.create(null);
+            for(let [k,v] of map){   // e  [key, value]
+               obj[k]=v;  //obj.k 
+            }
+            return obj;
+        }
+        
+        let m=new Map().set("name","小话").set("age","20").set("paly","game")
+        let obj=mapTo(m);
+        console.log(obj);
+
+
+        function Animal(name){
+            this.name=name;
+        }
+        let a=new Animal("鲸");
+        console.log(a);
+    </script>
+</body>
+</html>

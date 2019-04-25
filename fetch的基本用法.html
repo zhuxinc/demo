@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fetch("http://localhost:4000?name=java",{
+        //     methods: "get"
+        // }).then(res=>res.json(),err=>{
+        //     console.log(err);
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+
+        //post请求
+        // fetch("http://localhost:3000",{
+        //     method:"post",
+        //     body:"username=admin&password=123"
+        // }).then(res=>res.json(),err=>{
+        //     console.log(err)
+        // }).then(data=>{
+        //     console.log(data)
+        // });
+
+        //有事后端接口需要前端发送的数据类型是json对象字符串
+        let o={
+            username:"admin",
+            password:"123"
+        };
+        fetch("http://localhost:7000",{
+            method:"post",
+            body:JSON.stringify(o)
+        }).then(res=>res.json(),err=>{
+            console.log(err)
+        }).then(data=>{
+            console.log(data)
+        });
+    </script>
+</body>
+</html>

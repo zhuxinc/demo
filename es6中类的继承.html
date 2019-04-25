@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            对象也称实力（instance）
+            属性和行为是有归属的，一是归属于对象（new 出来的东西），二是归属于类本身
+            归属于类本身在的就是静态的，用static关键字修饰（但只是修饰方法）
+
+            因为es6明确规定，Class内部只有静态方法，没有静态属性
+            如果希望定义类的静态属性，只能将其定义猜class外部
+        */
+
+        class Student{
+            constructor(name){
+                this.name=name;
+            }
+            study(){
+                console.log(`${this.name}正在学习`)
+            }
+
+        }
+
+        
+        class UIStudent extends Student{
+            constructor(name,type){
+                super(name);//调用父类构造函数语法-
+                // this.name=name;
+                this.type=type;
+            }
+
+            // draw(){
+            //     console.log("draw............")
+            // }
+        }
+
+        let s=new UIStudent("小明","UI");
+        s.study();
+        // s.draw();
+        console.log(Object.getPrototypeOf(UIStudent)===Student);//可以检测父类是谁
+    </script>
+    
+</body>
+</html>

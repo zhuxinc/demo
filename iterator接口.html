@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //javascript一共有四种标识集合的数据结构 Array，Object，Set，Map
+        //只有Objert没有实现 Iterator 接口，不能直接用for...of遍历，因此对象用for...in来遍历
+
+        //一种数据结构只要部署了 Iterator 接口，我们就称这种数据结构是“可遍历的”（iterable）
+        //就可以使用for...of进行遍历
+        //一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）
+        var arr=[4,5,6]
+        console.log(arr);
+
+        for(var v of arr){  //v是元素而非索引
+            console.log(v)
+        }
+
+        var o={
+            name:"aaa",
+            age:20
+        };
+        console.log(o)
+    </script>
+</body>
+</html>

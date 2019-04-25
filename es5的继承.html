@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es5中一般使用构造函数和原型组合模式来实现继承
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+
+        Person.prototype.eat=function(){
+            console.log(this.name+"正在吃美食")
+        };
+
+        //定义子类
+        function Student(name,age,no,school){
+            Person.call(this,name,age);//借用父类构造函数
+            this.no=no;
+            this.school=school;
+        }
+
+        Student.prototype=new Person();
+
+        Student.prototype.study=function(){
+            console.log(this.name+"正在"+this.school+"学习")
+        };
+
+        Student.prototype.eat=function(){  //重写 (覆盖) ,override
+            console.log(this.name+"正在细嚼慢咽的吃")
+        }
+
+        var p=new Person("小李",12);
+        p.eat();
+
+        var s=new Student("小明",20,1002,"bei")
+        s.eat();
+        s.study();
+    </script>
+</body>
+</html>

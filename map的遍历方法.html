@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let m=new Map;
+
+        m.set("name","小明").set("age","20");
+
+        //forEach
+        m.forEach((e,f)=>void console.log(e,f))
+        
+        //for...of
+        for(let v of m){
+            console.log(v);
+        }
+
+        //keys 获取所有key，得到一个可遍历的结构
+        // console.log(m.keys())
+        for(let v of m.keys()){
+            console.log(v);
+        }
+
+        //values() 获取所有value，不能通过value获取key
+        // console.log(m.values())
+        for(let v of m.values()){
+            console.log(v)
+        }
+
+        //entries()  获取所有的key-value 对
+        console.log(m.entries())
+    </script>
+</body>
+</html>

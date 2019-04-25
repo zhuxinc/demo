@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            es6中使用class关键词声明一个类
+            通过new来创建类的对象
+        */
+
+        //声明一个Animal类
+        class Animal{
+            //构造器（构造方法或构造函数） -通常用于初始化属性（成员属性，成员变量）
+            //成员属性通过this来指定，this.type.age即为成员属性
+            //因为es6没有专门的关键字来控制属性的访问权限；一般情况下可以使用_作为前缀来表示私有性
+            constructor(type,age){
+                this.type=type;
+                this._age=age;
+            }
+            //方法（成员方法）-通常用于定义行为或者功能
+            breeth(){
+                console.log(`${this._age}岁的${this.type}正在呼吸`);
+            }
+            //如果想对标识私有性的属性进行读取或设置。通常会有setter和getter进行拦截
+            set age(age){
+                console.log("setter...........");
+                if(age<0){
+                    this._age=8
+                }else{
+                    this._age=age;
+                }
+                this._age=age;
+            }
+
+            get age(){
+                return this._age+2;
+            }
+        }
+
+        //以上相当于创建一个自定义的引用数据类型
+        let a=new Animal('鱼类',1); //new时自动执行构造方法
+        a.breeth();
+        a.age=20; //外部age时设置，会自动执行set和get方法
+        a.breeth();
+        console.log(a.age);//外部获取age的值，会自动执行get方法
+
+        let b=new Animal('哺乳动物',20);
+        b.breeth();
+
+
+
+        class Employee{
+            constructor(eno,ename,deptno,salary){
+                this.eno=eno;
+                this.ename=ename;
+                this._deptno=deptno;
+                this._salary=salary;
+            }
+            work(){
+                console.log(`${this._deptno}部门的${this.ename}正在工作`)
+            }
+
+            set deptno(deptno){
+                if(deptno=== 11||deptno=== 22||deptno=== 33){
+                    this._deptno=deptno;
+                }else{
+                    this._deptno=11;
+                }
+            }
+            set salary(salary){
+                console.log("set")
+                if(salary<1000||salary>100000){
+                    this._salary=5000;
+                }else{
+                    this._salary=salary;
+                }
+            }
+
+            get salary(){
+                console.log("get")
+
+                return this._salary;
+            }
+        }
+
+        let e=new Employee(101,'aaa',11,3000);
+        e.salary=500;
+        console.log(e.salary)
+    </script>
+</body>
+</html>
