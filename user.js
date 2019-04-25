@@ -1,3 +1,7 @@
 function login(){
-    console.log("hello")
+    console.log("login")
+}
+
+function regist(){
+    console.log("regist")
 }
